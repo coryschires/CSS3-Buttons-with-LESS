@@ -1,0 +1,71 @@
+
+/* button configuration options */
+@button_color: #f78d1d;
+@border_radius: 0.5em;
+@font_size: 14px;
+@font_color: #fef4e9;
+@button_padding: 0.55em 2em;
+
+/* color variables set relative to @button_color. 
+You probably don't need to change these. */
+@hover_background_color: @button_color - #031100;
+@border_color: @button_color - #1D1111;
+
+@normal_background_top: @button_color + #031800; 
+@normal_background_bottom: @normal_background_top - #062B00; 
+
+@hover_background_top: @button_color + #010100; 
+@hover_background_bottom: @hover_background_top - #082E08; 
+
+@active_background_top: @normal_background_bottom; 
+@active_background_bottom: @normal_background_top; 
+
+* { margin: 0; padding: 0; }
+body { padding: 20px; }
+.example { margin-bottom: 20px; }
+
+/* styles for button color */
+.button {
+	color: @font_color;
+	border: solid 1px @border_color;
+	background: @button_color;
+    background: -webkit-gradient(linear, left top, left bottom, from(@normal_background_top), to(@normal_background_bottom));
+    background: -moz-linear-gradient(top,  @normal_background_top,  @normal_background_bottom);
+}
+.button:hover {
+	background: @hover_background_color;
+    background: -webkit-gradient(linear, left top, left bottom, from(@hover_background_top), to(@hover_background_bottom));
+    background: -moz-linear-gradient(top,  @hover_background_top,  @hover_background_bottom);
+}
+.button:active {
+    background: -webkit-gradient(linear, left top, left bottom, from(@active_background_top), to(@active_background_bottom));
+    background: -moz-linear-gradient(top,  @active_background_top,  @active_background_bottom);
+}
+
+
+/* basic styles for button size, padding, etc. */
+.button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: @font_size;
+  line-height: 100%;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  padding: @button_padding;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  -webkit-border-radius: @border_radius;
+  -moz-border-radius: @border_radius;
+  border-radius: @border_radius;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.button:hover {
+  text-decoration: none;
+} 
+.button:active {
+  position: relative;
+  top: 1px;
+}
